@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les premiers pas de l'informatiques</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FAFAFA;
+            position: relative;
+            min-height: 4300px;
+        }
+        .rectangle1 {
+            width: 1100px;
+            height: 120px;
+            background-color: #B6B6B6;
+            border-radius: 15px;
+            margin: 20px auto 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            font-size: 50px;
+			font-family: 'Impact',sans-serif;
+            position: relative;
+            z-index: 2;
+        }
+        .rectangle2 {
+            width: 200px;
+            height: 800px;
+            background: linear-gradient(to bottom, #474747, #9C9C9C);
+            border-radius: 15px;
+            position: fixed;
+            top: -100px;
+            left: calc(50% - 550px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .rectangle2 .link-box:first-child {
+            margin-top: 135px;
+        }
+        .rectangle2 .link-box {
+            background-color: #E0E0E0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            color: black;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s;
+        }
+        .rectangle2 .link-box:hover {
+            background-color: #D0D0D0;
+        }
+        .section {
+            width: 800px;
+            margin: 50px 20px;
+            position: absolute;
+            left: calc(50% - 325px);
+            background-color: #DADADA;
+            border-radius: 8px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        #section1 { top: 75px; }
+        #section2 { top: 860px; }
+        #section3 { top: 1430px; }
+        #section4 { top: 2750px; }
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .rectangle3 {
+            width: 150px;
+            height: 700px;
+            background-color: #FAFAFA;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            transition: background-color 10s;
+            cursor: pointer;
+        }
+        .rectangle3:hover {
+            background-color: #000000;
+        }
+        .rectangle4 {
+            width: 200px;
+            height: 120px;
+            background-color: #787878;
+            border-radius: 15px;
+            position: absolute;
+            top: 0px;
+            left: calc(50% + 350px);
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: height 0.5s ease;
+        }
+        .rectangle5 {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+			background-image: url('../Images/menu.png');
+			background-size: cover; 
+            background-color: #cbcbcb;
+            cursor: pointer;
+            position: absolute;
+			margin-top: 15px;
+			margin-left: 975px;
+            z-index: 3;
+        }
+		.rectangle6 {
+            width: 100%;
+            height: 150px;
+            background-color: #8e8e8e;
+            position: absolute;
+			color: black;
+            font-size: 20px;
+			text-align: center;
+			margin-top: 4050px;
+            z-index: 0;
+        }
+		.image1 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: 230px;
+        }
+        .image1 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image1 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+		.image2 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: -120px;
+        }
+        .image2 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image2 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+		.image3 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: -30px;
+        }
+        .image3 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image3 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+		.image4 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: -350px;
+        }
+        .image4 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image4 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+		.image5 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: 500px;
+        }
+		.image5 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image5 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+		.image6 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: -350px;
+        }
+		.image6 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image6 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+		
+        .button-container {
+            display: none;
+            margin-top: 100px;
+        }
+        .button-container button {
+            margin: 10px;
+            padding: 15px 60px;
+            font-size: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #E0E0E0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .button-container button:hover {
+            background-color: #D0D0D0;
+        }
+		table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+			margin-top: -1420px;
+			margin-left: 335px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div id="top"></div>
+
+    <div class="rectangle1">
+        Les Premiers Pas de L'Informatique
+    </div>
+
+    <div class="rectangle4" id="rectangle4">
+        <div class="button-container" id="buttonContainer">
+            <button onclick="window.open('pagehtml1.html')">Les premiers pas de l'informatique</button>
+            <button onclick="window.open('pagehtml4.html')">Les avancés informatique</button>
+        </div>
+    </div>
+
+    <div class="rectangle5" id="rectangle5" style="top: 20px; left: calc(50% - 550px);"></div>
+
+    <div class="rectangle2">
+        <a href="#top" class="link-box">Les Premiers pas de l'informatiques</a>
+        <a href="#section1" class="link-box">Charles Babbage</a>
+        <a href="#section2" class="link-box">Ada Lovelace</a>
+        <a href="#section3" class="link-box">Capteurs et Actionneurs</a>
+        <a href="#section4" class="link-box">Tables de vérité</a>
+    </div>
+
+    <div class="rectangle3" onclick="window.open('pagehtml5.html')"></div>
+	
+	<div class="rectangle6">
+		Pour me contacter: <a id:"adresse" href="mailto:yanis.maniani@monlycee.net"> yanis.maniani@monlycee.net</a>
+    </div>
+
+    <div id="section1" class="section">
+        <h2 class="section-title">Charles Babbage</h2>
+        <p>Charles Babbage (1791-1871) était un mathématicien, ingénieur et inventeur britannique, reconnu pour avoir conceptualisé le premier ordinateur mécanique programmable. Il est surtout célèbre pour sa machine analytique, une préfiguration des ordinateurs modernes, qui était capable de réaliser des calculs complexes automatiquement. Bien que sa machine n'ait jamais été entièrement construite de son vivant, ses idées ont grandement influencé le développement de l'informatique.</p>
+    </div>
+    <div id="section2" class="section">
+        <h2 class="section-title">Ada Lovelace</h2>
+        <p>Ada Lovelace (1815-1852) était une mathématicienne britannique, fille du poète Lord Byron. Elle est surtout connue pour ses travaux avec Charles Babbage sur la machine analytique. Ada est souvent considérée comme la première programmeuse de l'histoire, car elle a écrit des algorithmes destinés à être exécutés par cette machine. Elle a également conceptualisé des idées fondamentales sur la programmation informatique avant même l'invention des ordinateurs modernes.</p>
+    </div>
+    <div id="section3" class="section">
+        <h2 class="section-title">Capteur et Actionneurs</h2>
+        <p>Un capteur est un dispositif qui détecte un phénomène physique ou chimique et convertit cette information en un signal, généralement électrique, que d'autres systèmes peuvent traiter ou analyser. Les capteurs sont utilisés pour mesurer des paramètres comme la température, la lumière, la pression, le mouvement ou la distance. Ils servent de "yeux" ou "oreilles" aux systèmes automatisés, leur permettant de percevoir leur environnement.<br><br>Un actionneur, en revanche, est un dispositif qui reçoit un signal de commande (souvent électrique) et agit sur le monde physique pour produire un changement. Par exemple, un actionneur peut déplacer un objet, ajuster une position, ou libérer une énergie. En d'autres termes, il convertit une énergie reçue en un mouvement ou une action concrète. Les actionneurs sont utilisés pour effectuer des actions mécaniques comme ouvrir une porte, ajuster un angle, ou activer un moteur.</p>
+    </div>
+    <div id="section4" class="section">
+        <h2 class="section-title">Tables de vérité</h2>
+        <p>Les tables de vérité des fonctions logiques permettent de représenter toutes les combinaisons possibles des entrées binaires (0 ou 1) et leurs résultats en fonction d'une opération logique donnée, telles que NON, ET, OU ou XOR, utilisées pour concevoir des circuits numériques.<br> Voici la listes des table de vérité ainsi que leurs portes logiques:</p>
+    </div>
+	
+	<div class="image1">
+        <img src="../Images/Charles.png" alt="Image">
+        <p>Charles Babbage</p>
+    </div>
+	
+	<div class="image2">
+        <img src="../Images/Lovelace.png" alt="Image">
+        <p>Ada Lovelace</p>
+    </div>
+	<div class="image3">
+        <img src="../Images/capteur.png" alt="Image">
+        <p>Liste des différents capteurs</p>
+    </div>
+	<div class="image4">
+        <img src="../Images/action.png" alt="Image">
+        <p>Liste des différents actionneurs</p>
+    </div>
+	<div class="image5">
+        <img src="../Images/et.png" alt="Image">
+        <p>Porte logique ET</p>
+    </div>
+	<div class="image6">
+        <img src="../Images/or.png" alt="Image">
+        <p>Porte logique OU</p>
+    </div>
+	<div class="image6">
+        <img src="../Images/not.png" alt="Image">
+        <p>Porte logique NON</p>
+    </div>
+	<div class="image6">
+        <img src="../Images/xor.png" alt="Image">
+        <p>Porte logique XOR</p>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>A ET B</th>
+                <th>A OU B</th>
+                <th>NON</th>
+				<th>XOR</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+				<td>0</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+				<td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+				<td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+				<td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('rectangle5').addEventListener('click', function() {
+            const rectangle4 = document.getElementById('rectangle4');
+            const buttonContainer = document.getElementById('buttonContainer');
+
+            const currentHeight = parseInt(window.getComputedStyle(rectangle4).height);
+            if (rectangle4.dataset.toggled === "true") {
+                rectangle4.style.height = "120px";
+                buttonContainer.style.display = "none";
+                rectangle4.dataset.toggled = "false";
+            } else {
+                rectangle4.style.height = "300px";
+                buttonContainer.style.display = "block";
+                rectangle4.dataset.toggled = "true";
+            }
+        });
+    </script>
+</body>
+</html>

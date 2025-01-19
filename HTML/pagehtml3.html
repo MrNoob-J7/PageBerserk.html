@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Berserk</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #b72727, #000000);
+            position: relative;
+            min-height: 6000px;
+        }
+        .rectangle {
+            width: 1100px;
+            height: 200px;
+            background-image: url('../Images/Berserk.png'); /* Image de fond */
+            background-size: cover; /* L'image couvre tout le rectangle */
+            background-position: center; /* Centrage de l'image */
+            border-radius: 15px;
+            margin: 20px auto 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative; /* Contexte pour le filtre noir */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Assure que tout reste dans les limites du rectangle */
+            z-index: 10; /* Rectangle1 au-dessus de tout */
+        }
+        .rectangle .filter {
+            position: absolute; /* Le filtre noir couvre tout */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.25); /* Filtre noir semi-transparent */
+            z-index: 1; /* Derrière le texte */
+        }
+        .rectangle .text {
+            position: relative; /* Assure que le texte est au-dessus du filtre */
+            z-index: 2; /* Texte au-dessus du filtre */
+            color: white; /* Texte en blanc */
+            font-size: 100px;
+            text-shadow: 0px 0px 10px black; /* Contour noir pour le texte */
+            font-family: 'Impact',sans-serif
+        }
+        .rectangle2 {
+            width: 200px;
+            height: 800px;
+            background: linear-gradient(to bottom, #690000, #cd0000);
+            border-radius: 15px;
+            position: fixed;
+            top: -100px;
+            left: calc(50% - 550px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 5; /* Rectangle2 en dessous de Rectangle1 */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .rectangle2 img {
+            width: 100px; /* Ajuste la largeur de l'image */
+            height: auto; /* Maintient le ratio de l'image */
+			margin-top: 100px;
+            margin-bottom: 15px; /* Ajoute un espace sous l'image */
+            align-self: center; /* Centre l'image horizontalement */
+        }
+        .rectangle2 .link-box:first-child {
+            margin-top: 0; /* Supprime l'espace spécifique pour le premier lien */
+        }
+        .rectangle2 .link-box {
+            background-color: #936c6c;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            color: black;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s;
+        }
+        .rectangle2 .link-box:hover {
+            background-color: #D0D0D0;
+        }
+        .section {
+            width: 800px;
+            margin: 50px 20px;
+            position: absolute;
+            left: calc(50% - 325px);
+            background-color: #b29191;
+            border-radius: 8px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        #section1 { top: 155px; }
+        #section2 { top: 800px; }
+        #section4 { top: 4500px; }
+		#section5 { top: 1700px; }
+		#section6 { top: 2180px; }
+		#section7 { top: 2340px; }
+		#section8 { top: 2950px; }
+		#section9 { top: 3700px; }
+		#section10{ top: 4000px; }
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+		.rectangle4 {
+            width: 200px;
+            height: 100px;
+            background-color: #931313;
+            border-radius: 15px;
+            position: absolute;
+            top: 0px;
+            left: calc(50% + 350px);
+            z-index: 1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: height 0.5s ease;
+        }
+		.rectangle5 {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+			background-image: url('../Images/menu.png');
+			background-size: cover; 
+            background-color: #931313;
+            cursor: pointer;
+            position: absolute;
+			margin-top: 60px;
+			margin-left: 975px;
+            z-index: 11;
+        }
+		.rectangle6 {
+            width: 100%;
+            height: 150px;
+            background-color: #690000;
+            position: absolute;
+			color: white;
+            font-size: 20px;
+			text-align: center;
+			margin-top: 5800px;
+            z-index: 0;
+        }
+		.image1 {
+            width: 600px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: 850px;
+        }
+        .image1 img {
+            width: 100%; 
+            max-width: 800px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image1 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #FDFDFD; 
+        }
+		.image2 {
+            width: 600px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: -350px;
+        }
+        .image2 img {
+            width: 100%; 
+            max-width: 800px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image2 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #FDFDFD; 
+        }
+		.image3 {
+            width: 600px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: -190px;
+        }
+        .image3 img {
+            width: 100%; 
+            max-width: 800px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image3 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #FDFDFD; 
+        }
+		.image4 {
+            width: 600px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: 400px;
+        }
+        .image4 img {
+            width: 100%; 
+            max-width: 800px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image4 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #FDFDFD; 
+        }
+		.image5 {
+            width: 600px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: -3650px;
+        }
+        .image5 img {
+            width: 100%; 
+            max-width: 800px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image5 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #FDFDFD; 
+        }
+		.image6 {
+            width: 600px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: -100px;
+        }
+        .image6 img {
+            width: 100%; 
+            max-width: 800px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image6 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #FDFDFD; 
+        }
+		.image7 {
+            width: 600px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: 3350px;
+        }
+        .image7 img {
+            width: 100%; 
+            max-width: 800px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image7 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #FDFDFD; 
+        }
+        .button-container {
+            display: none;
+            margin-top: 200px;
+        }
+        .button-container button {
+            margin: 10px;
+            padding: 15px 60px;
+            font-size: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #936c6c;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .button-container button:hover {
+            background-color: #D0D0D0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ancre invisible pour revenir tout en haut -->
+    <div id="top"></div>
+
+    <!-- Rectangle principal -->
+    <div class="rectangle">
+        <!-- Filtre noir -->
+        <div class="filter"></div>
+        <!-- Texte au-dessus -->
+        <div class="text">Berserk</div>
+    </div>
+	
+	<div class="rectangle4" id="rectangle4">
+        <div class="button-container" id="buttonContainer">
+            <button onclick="window.open('pagehtml1.html')">Les premiers pas de l'informatique</button>
+            <button onclick="window.open('pagehtml4.html')">Les avancés informatique</button>
+		</div>
+    </div>
+		
+	<div class="rectangle5" id="rectangle5" style="top: 20px; left: calc(50% - 550px);"></div>
+	
+	<div class="rectangle6">
+		Pour me contacter: <a id:"adresse" href="mailto:yanis.maniani@monlycee.net"> yanis.maniani@monlycee.net</a>
+    </div>
+
+
+    <!-- Rectangle sommaire -->
+    <div class="rectangle2">
+        <!-- Image ajoutée -->
+        <img src="../Images/Berserk_2-modified.png" alt="Berserk Image">
+        <a href="#top" class="link-box">Berserk</a>
+        <a href="#section1" class="link-box">Introduction</a>
+        <a href="#section2" class="link-box">Son histoire</a>
+        <a href="#section4" class="link-box">Conclusion</a>
+    </div>
+
+	<div class="image1">
+        <img src="../Images/Berserk_3.png" alt="Berserk Image">
+        <p>Guts et Griffith</p>
+    </div>
+	<div class="image2">
+        <img src="../Images/Berserk_4.png" alt="Berserk Image">
+        <p>Casca pendant le Golden Age</p>
+    </div>
+	<div class="image3">
+        <img src="../Images/Berserk_5.png" alt="Berserk Image">
+        <p>Griffith avec son behelit</p>
+    </div>
+	<div class="image4">
+        <img src="../Images/Berserk_6.png" alt="Berserk Image">
+        <p>L'éclipse</p>
+    </div>
+	<div class="image6">
+        <img src="../Images/Berserk_7.png" alt="Berserk Image">
+        <p>Les 5 God Hand</p>
+    </div>
+	<div class="image5">
+        <img src="../Images/Berserk_8.png" alt="Berserk Image">
+        <p>Kentaro Miura (1966-2001)</p>
+    </div>
+	<div class="image7">
+        <img src="../Images/Berserk_9.png" alt="Berserk Image">
+        <p>Guts après les événements du Golden Age</p>
+    </div>
+
+    <!-- Sections correspondantes -->
+    <div id="section1" class="section">
+        <h2 class="section-title">Introduction</h2>
+        <p>Plongée dans un univers brutal et sombre, Berserk de Kentaro Miura arrive à nous plongé dans son histoire pleine d'action, combat et de guerre.<br>Ses dessins extrements detaillé et remplie rend les scènes extrements réalistes. <br>Ce manga, souvent décrit comme un chef-d’œuvre de la dark fantasy, continue d’inspirer les artistes et les amateurs du genre à travers le monde.</p>
+    </div>
+    <div id="section2" class="section">
+        <h2 class="section-title">Son histoire</h2>
+        <p>L'histoire de Berserk se passe pendant le moyen-age dans un monde réaliste. On suit Guts, un mercenaire qui se fera une reputation qui attira l'attention de Griffith, chef d'une troupe de mercenaire "La troupe du faucon" engagé par le royaume du Midland. Cette troupe est principalement constitué de Judeau, Rickert, Gaston, Carcus, Pippin et Casca, la seule femme de la troupe.<p>
+	</div>
+    <div id="section4" class="section">
+        <h2 class="section-title">Conclusion</h2>
+        <p>En conclusion, J'aime Berserk pour son histoire, son thème de dark fantasy, ses combats intenses et ses dessins toujours plus détaillé. La suite de l'histoire reste encore meilleur avec Griffith qui se rapproche de son rêve et Guts qui surpasse les limites humaines et déchaine toute sa rage dans chaque circonstance juste pour pouvoir se venger de Griffith.</p>
+    </div>
+	<div id="section5" class="section">
+        <h2 class="section-title"></h2>
+        <p>Après avoir rejoins la troupe du faucon, Guts obtient le rôle de second de Griffith pour sa force brute au combat et lui montrera alors un mysterieux objet qu'il possède, le "behelit". <br> Pendant la guerre, Griffith commenca une relation avec Charlotte, la fille du roi du Midland.</p>
+    </div>
+	<div id="section6" class="section">
+        <h2 class="section-title"></h2>
+        <p>A la fin de la guerre du Midland qui fut une victoire grâce à la troupe du faucon dont tout les membres ont été annobli, Guts décida de quitter la troupe de Griffith pour continuer son aventure.<br> Suite à cette nouvelle, Griffith était troublé il seduisa et déflora Charlotte. Il fut arrété et torturé pour trahison pendant que la troupe du faucon s'enfuyait des soldats du Midland.</p>
+    </div>
+	<div id="section7" class="section">
+        <h2 class="section-title"></h2>
+        <p>6 mois plus tard, Guts retrouva la troupe du faucon aux ordres de Casca, qui prévoyaient de sauver Griffith. Après le sauvetage de Griffith dans le donjon du Midland, la troupe le retrouve après ses mois de torture, il a la langue et les tendons coupés et la peau sur les os. <br> Le reste de la troupe du faucon comprend donc qu'il s'agit de la fin. Lorsque Griffith entend les mercenaires parler de l'abbolition de la troupe, il fuit à cheval, jusqu'à ce qu'il chûte par accident dans un lac peu profond. Guts et le reste de la troupe le rattraper.<br>La chûte de Griffith le fit saigner et tomber son behelit, au contact de son sang le visage du behelit pris forme et une eclipse apparut au même moment.<p>
+	</div>
+	<div id="section8" class="section">
+        <h2 class="section-title"></h2>
+        <p>Cette éclipse ramena Griffith et le reste de la troupe dans un espace nommé "point de jonction temporelle". Il s'agit d'un large étendue de crane et de chaire de grande taille dans un lac de sang peuplé de monstre difforme à l'allure gore, avec au milieu une énorme main de chaire qui sort du sol emportant Griffith et Guts. À chaque doigt de la main apparaît 4 monstres à l'allure de Dieux ou de démons.<br> Ces monstres se décrivent à des dieux appelés les "God Hand" à Griffith, Ils lui expliquent que lui seul a été choisi par la causalité, une force mystérieuse qui contrôlent l'avenir, pour devenir le prochain God Hand en échange d'un sacrifice. Suite au choix de Griffith, chaque membre de la troupe du faucon présente dans le point de jonction était visé par une flamme inévitable qui à leur contact, infligée une marque, la "marque du sacrifice".</p>
+	</div>
+	<div id="section9" class="section">
+        <h2 class="section-title"></h2>
+        <p>Cette marque a pour effet d'attirer les monstres sur les sacrifiés pour donner naissance à une nouvelle forme de Griffith, "Femto" . Chaque membre de la troupe meurs un par un, jusqu'à ce qu'il reste uniquement Guts et Casca encore en vie qui elle, était immobilisée par la peur. A l'arrivée de Femto, il s'attaqua directement à Casca pour l'agresser sexuellement en face de Guts tenta de la sauver jusqu'à ce qu'il se fasse arrêter par un monstre qui lui morda le bras et l'écrasa jusqu'a lui crever l'oeil. Par rage sur la situation, Guts preferera s'arracher le bras pour sauver Casca.<br>Au même moment, un mysterieux cavalier au casque de crâne apparut magiquement de l'éclipse pour attaquer les God Hand, suite à une attaque loupé, il continua sa ruée pour sauver Guts et Casca hors de l'éclipse. <br><br> Au reveil de Guts, il retrouva Casca amnsésique, le "skull knight" lui explica les effets de la marque du sacrifices, d'attirer les monstres aux alentours pendant la nuit.</p>
+	</div>
+	<div id="section10" class="section">
+        <h2 class="section-title"></h2>
+        <p>Après les évenements du Golden Age, on retrouve Guts, un guerrier habillé en noir, au bras mécanique qui sert d'arbalète et de canon portatif, une épée encore plus démeusuré et d'autres armes, à lutter contre les apôtres, des démons au services des God Hand pour retrouver Griffith et se venger de lui. </p>
+    </div>
+	
+	<script>
+        document.getElementById('rectangle5').addEventListener('click', function() {
+            const rectangle4 = document.getElementById('rectangle4');
+            const buttonContainer = document.getElementById('buttonContainer');
+
+            const currentHeight = parseInt(window.getComputedStyle(rectangle4).height);
+            if (rectangle4.dataset.toggled === "true") {
+                rectangle4.style.height = "120px";
+                buttonContainer.style.display = "none";
+                rectangle4.dataset.toggled = "false";
+            } else {
+                rectangle4.style.height = "400px";
+                buttonContainer.style.display = "block";
+                rectangle4.dataset.toggled = "true";
+            }
+        });
+    </script>
+</body>
+</html>

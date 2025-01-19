@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les avancés informatique</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FAFAFA;
+            position: relative;
+            min-height: 3500px;
+        }
+        .rectangle1 {
+            width: 1100px;
+            height: 120px;
+            background-color: #B6B6B6;
+            border-radius: 15px;
+            margin: 20px auto 0 auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            font-size: 50px;
+			font-family: 'Impact',sans-serif;
+            position: relative;
+            z-index: 2;
+        }
+        .rectangle2 {
+            width: 200px;
+            height: 800px;
+            background: linear-gradient(to bottom, #474747, #9C9C9C);
+            border-radius: 15px;
+            position: fixed;
+            top: -100px;
+            left: calc(50% - 550px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .rectangle2 .link-box:first-child {
+            margin-top: 130px;
+        }
+        .rectangle2 .link-box {
+            background-color: #E0E0E0;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            color: black;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.2s;
+        }
+        .rectangle2 .link-box:hover {
+            background-color: #D0D0D0;
+        }
+        .section {
+            width: 800px;
+            margin: 50px 20px;
+            position: absolute;
+            left: calc(50% - 325px);
+            background-color: #DADADA;
+            border-radius: 8px;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        #section1 { top: 75px; }
+        #section2 { top: 750px; }
+        #section3 { top: 1610px; }
+        #section4 { top: 2420px; }
+		#section5 { top: 3250px; }
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .rectangle4 {
+            width: 200px;
+            height: 120px;
+            background-color: #787878;
+            border-radius: 15px;
+            position: absolute;
+            top: 0px;
+            left: calc(50% + 350px);
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            transition: height 0.5s ease;
+        }
+        .rectangle5 {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+			background-image: url('../Images/menu.png');
+			background-size: cover; 
+            background-color: #cbcbcb;
+            cursor: pointer;
+            position: absolute;
+			margin-top: 15px;
+			margin-left: 975px;
+            z-index: 3;
+        }
+		.rectangle6 {
+            width: 100%;
+            height: 150px;
+            background-color: #8e8e8e;
+            position: absolute;
+			color: black;
+            font-size: 20px;
+			text-align: center;
+			margin-top: 3550px;
+            z-index: 0;
+        }
+		.image1 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: 230px;
+        }
+        .image1 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image1 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+		.image2 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: -50px;
+        }
+        .image2 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image2 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+		.image3 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: 390px;
+        }
+        .image3 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image3 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+		.image4 {
+            width: 400px;
+            margin: 360px; 
+            text-align: center;
+			margin-top: 230px;
+        }
+        .image4 img {
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image4 p {
+            margin-top: 10px; 
+            font-size: 16px;
+            color: #333; 
+        }
+        .button-container {
+            display: none;
+            margin-top: 100px;
+        }
+        .button-container button {
+            margin: 10px;
+            padding: 15px 60px;
+            font-size: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #E0E0E0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .button-container button:hover {
+            background-color: #D0D0D0;
+        }
+    </style>
+</head>
+<body>
+    <div id="top"></div>
+
+    <div class="rectangle1">
+        Les Avancés Informatiques
+    </div>
+
+    <div class="rectangle4" id="rectangle4">
+        <div class="button-container" id="buttonContainer">
+            <button onclick="window.open('pagehtml1.html')">Les premiers pas de l'informatique</button>
+            <button onclick="window.open('pagehtml4.html')">Les avancés informatique</button>
+        </div>
+    </div>
+
+    <div class="rectangle5" id="rectangle5" style="top: 20px; left: calc(50% - 550px);"></div>
+	
+	<div class="rectangle6">
+		Pour me contacter: <a id:"adresse" href="mailto:yanis.maniani@monlycee.net"> yanis.maniani@monlycee.net</a>
+    </div>
+
+    <div class="rectangle2">
+        <a href="#top" class="link-box">Les Avancés Informatiques</a>
+        <a href="#section1" class="link-box">Alan Turing</a>
+        <a href="#section2" class="link-box">John von Neumann</a>
+        <a href="#section3" class="link-box">L'architecture de Von Neumman</a>
+        <a href="#section4" class="link-box">L'achitecture d'Harvard</a>
+		<a href="#section5" class="link-box">Leurs Différences</a>
+    </div>
+
+    <div class="rectangle3" onclick="window.open('pagehtml2.html')"></div>
+
+    <div id="section1" class="section">
+        <h2 class="section-title">Alan Turing</h2>
+        <p>Alan Turing (1912-1954) était un mathématicien et informaticien britannique, considéré comme l'un des pères fondateurs de l'informatique moderne. Il est surtout connu pour avoir formulé la machine de Turing, un modèle théorique qui a permis de définir ce qui est calculable. Turing a également joué un rôle clé dans la décryption des codes allemands lors de la Seconde Guerre mondiale, notamment avec le décryptage du code Enigma. Son travail a jeté les bases de l'informatique théorique et a inspiré la conception des premiers ordinateurs.</p>
+    </div>
+    <div id="section2" class="section">
+        <h2 class="section-title">John von Neumann</h2>
+        <p>John von Neumann (1903-1957) était un mathématicien et physicien hongro-américain, reconnu pour ses contributions majeures dans des domaines variés comme la mécanique quantique, la théorie des jeux, et l'architecture des ordinateurs. Il a conçu l'architecture de Von Neumann, qui a servi de base pour la plupart des ordinateurs modernes. Son modèle repose sur l'idée d'unité entre la mémoire et le processeur, ce qui a permis de simplifier la conception des ordinateurs et de les rendre plus flexibles.<br><br>L'architecture de Von Neumann est à la base de la majorité des ordinateurs modernes, car elle permet une conception simple et flexible, où la même unité de traitement (CPU) peut exécuter différents programmes stockés en mémoire.</p>
+    </div>
+    <div id="section3" class="section">
+        <h2 class="section-title">L'architecture de Von Neumann</h2>
+        <p>L'architecture de Von Neumann est un modèle conceptuel qui constitue la base de la quasi-totalité des appareils numériques actuels, tels que les ordinateurs, les tablettes et les smartphones. Ce modèle repose sur une mémoire unique qui stocke à la fois les instructions du programme et les données nécessaires à son exécution. L'unité centrale de traitement (CPU) joue un rôle clé en récupérant (fetch), en décodant et en exécutant les instructions de manière séquentielle. Les composants de cette architecture sont interconnectés par des bus de communication, qui permettent l'échange des instructions et des données entre la mémoire, le CPU et les périphériques.<br><br>La simplicité de cette architecture a permis une adoption massive, mais elle présente une limitation majeure : le "goulot d'étranglement de Von Neumann". Cette limite réside dans le fait que le CPU ne peut accéder qu'à une seule instruction ou donnée à la fois, ce qui réduit les performances globales lorsque les échanges entre le processeur et la mémoire deviennent intenses. Malgré ce défaut, cette architecture a ouvert la voie à la standardisation et à la généralisation des ordinateurs programmables.</p>
+    </div>
+    <div id="section4" class="section">
+        <h2 class="section-title">L'architecture d'Harvard</h2>
+        <p>L'architecture d'Harvard adopte une approche différente en séparant physiquement les mémoires utilisées pour les instructions et pour les données. Cette distinction permet au processeur de lire une instruction et de traiter une donnée simultanément, ce qui améliore considérablement les performances dans certaines applications. De plus, la séparation réduit les conflits potentiels entre les instructions et les données, augmentant ainsi la fiabilité du système.<br><br>Cette architecture est souvent utilisée dans les systèmes embarqués, tels que les microcontrôleurs et les processeurs spécialisés, où des gains de performance sont essentiels. Cependant, son implémentation est plus complexe et coûteuse, ce qui limite son usage dans les systèmes à large échelle comme les ordinateurs personnels. Dans ces environnements, l'architecture de Von Neumann reste privilégiée en raison de sa simplicité et de son coût réduit.</p>
+    </div>
+	<div id="section5" class="section">
+        <h2 class="section-title">Leurs différences</h2>
+        <p>L'architecture de Von Neumann repose sur une mémoire unique pour les instructions et les données, tandis que l'architecture d'Harvard les sépare. Cette différence fondamentale se traduit par des implications majeures : l'architecture de Von Neumann, bien que simple et économique, souffre du goulot d'étranglement qui limite la vitesse d'exécution des instructions. En revanche, l'architecture d'Harvard permet un accès simultané aux instructions et aux données, augmentant ainsi les performances mais au prix d'une complexité accrue.<br><br>Malgré leurs distinctions, ces deux architectures trouvent leurs usages selon les besoins. L'architecture de Von Neumann reste la pierre angulaire des appareils numériques généralistes, tandis que l'architecture d'Harvard excelle dans les systèmes spécialisés et embarqués où des performances optimales sont requises. Ensemble, elles témoignent de l'évolution et de l'adaptabilité des concepts informatiques pour répondre à des contextes variés.</p>
+	</div>
+	
+	<div class="image1">
+        <img src="../Images/turing.png" alt="Image">
+        <p>Alan Turring</p>
+    </div>
+	<div class="image2">
+        <img src="../Images/neumann.png" alt="Image">
+        <p>John Von Neumann</p>
+    </div>
+	<div class="image3">
+        <img src="../Images/ArchiVN.png" alt="Image">
+        <p>L'architectue de John Von Neumann</p>
+    </div>
+	<div class="image4">
+        <img src="../Images/ArchiHV.png" alt="Image">
+        <p>L'architecture d'Harvard</p>
+    </div>
+    <script>
+        document.getElementById('rectangle5').addEventListener('click', function() {
+            const rectangle4 = document.getElementById('rectangle4');
+            const buttonContainer = document.getElementById('buttonContainer');
+
+            const currentHeight = parseInt(window.getComputedStyle(rectangle4).height);
+            if (rectangle4.dataset.toggled === "true") {
+                rectangle4.style.height = "120px";
+                buttonContainer.style.display = "none";
+                rectangle4.dataset.toggled = "false";
+            } else {
+                rectangle4.style.height = "300px";
+                buttonContainer.style.display = "block";
+                rectangle4.dataset.toggled = "true";
+            }
+        });
+    </script>
+</body>
+</html>

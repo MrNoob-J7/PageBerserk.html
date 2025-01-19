@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ë̴̢̦̭̭̻͕̪͚̌̉͐͋̍̽̚͜ŗ̶̬̹͚̗̲͚̭̝͑͜ŕ̴͕͊̌͛̈́͑̎̇o̶̦̥̝̝̰̭̥͎͊̂́͛̊̑̽̉ŗ̷̮͎̤̬̤̀̄͊͋̊͘̕͜</title>
+    <style>
+        body {
+            margin: 0;
+            margin-top: -200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Empêche le défilement dû au déplacement */
+        }
+        .rectangle {
+            width: 100%;
+            height: 120px;
+            background-image: url('../Images/barrier.png');
+            background-size: cover; 
+            background-position: center;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(100, 100, 100, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 6rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+        }
+        .glitch-image {
+            margin-left: -300px;
+            width: 300px;
+            height: auto;
+            margin-top: 500px;
+            position: absolute;
+        }
+        .background-text {
+            position: absolute;
+            top: 40%;
+            left: 90%;
+            transform: translate(-50%, -50%);
+            color: black;
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="rectangle" id="rectangle1">
+        DANGER
+    </div>
+    <img src="../Images/glitch.png" alt="Image glitch" class="glitch-image" id="glitch-image">
+    <a href="pagehtml3.html" class="background-text">Berserk ?</a>
+
+    <script>
+        const glitchImage = document.getElementById('glitch-image');
+        const rectangle1 = document.getElementById('rectangle1');
+        let clickCount = 0;
+
+        function moveGlitchImage() {
+            const screenWidth = window.innerWidth;
+            const screenHeight = window.innerHeight;
+
+            // Génère des positions aléatoires
+            const randomX = Math.random() * (500);
+            const randomY = Math.random() * (150);
+
+            // Applique les positions aléatoires
+            glitchImage.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        rectangle1.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount >= 20) {
+                window.location.href = 'pagehtml2.html';
+            }
+        });
+
+        // Déplace l'image toutes les 50 ms
+        setInterval(moveGlitchImage, 50);
+    </script>
+</body>
+</html>
